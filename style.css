@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #222242;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stopwatch-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.stopwatch {
+    color: #ffffff;
+    font-size: 48px;
+    position: relative;
+    z-index: 1; /* Ensure the stopwatch is above the circular background */
+}
+
+.stopwatch::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #151538;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation-name: shine;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shine {
+    0%, 100% {
+        box-shadow: 0px 0px 32px -12px rgba(246, 180, 0, .5);
+    }
+    50% {
+        box-shadow: 0px 0px 32px 3px rgba(246, 180, 0, .5);
+    }
+}
+
+.controls {
+    margin-top: 20px; /* Ensure space between stopwatch and buttons */
+}
+
+button {
+    background-color: #222242;
+    padding: 10px 38px;
+    border: 1px solid #A9A9A9;
+    border-radius: 28px;
+    color: #fff;
+    transition: all .2s ease;
+    outline: 0;
+    margin: 5px;
+}
+
+button:hover,
+button:focus {
+    border-color: #F6B400;
+    color: #F6B400;
+    box-shadow: 0px 4px 27px -12px #F6B400;
+}
+
+.lap-times {
+    margin-top: 20px;
+    color: #ffffff;
+    width: 100%;
+    max-height: 300px; /* Set a max height for lap times */
+    overflow-y: auto; /* Allow scrolling if lap times exceed max height */
+    text-align: left; /* Align text to the left */
+    padding: 10px; /* Add padding for better appearance */
+}
+
+.lap-times h2 {
+    margin-bottom: 10px;
+}
+
+.lap-times ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lap-times li {
+    background-color: #333333;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
